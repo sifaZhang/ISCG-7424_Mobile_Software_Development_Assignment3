@@ -48,6 +48,13 @@ public class CloudinaryUploader {
         if (data == null) return;
 
         Uri imageUri = data.getData();
+        if (imageUri == null) {
+            if (callback != null) {
+                callback.onError(new Exception("No image selected"));
+            }
+            return;
+        }
+
         uploadToCloudinary(imageUri);
     }
 

@@ -49,7 +49,9 @@ public class ProfileActivity extends BaseActivity {
                     result -> {
                         if (result.getResultCode() == RESULT_OK) {
                             Intent data = result.getData();
-                            uploader.handleResult(data);
+                            if (data != null) {
+                                uploader.handleResult(data);
+                            }
                         }
                     }
             );
@@ -190,7 +192,9 @@ public class ProfileActivity extends BaseActivity {
         updates.put(FirebaseNodes.UserFields.USERNAME, username);
         updates.put(FirebaseNodes.UserFields.PHONE, phone);
         updates.put(FirebaseNodes.UserFields.ADDRESS, address);
-        updates.put(FirebaseNodes.UserFields.AVATAR, strAvatarUrl);
+        if (strAvatarUrl != null) {
+            updates.put(FirebaseNodes.UserFields.AVATAR, strAvatarUrl);
+        }
 
         FirebaseHelper_Users.updateUser(strUserUID, updates, oldPassword, newPassword, new FirebaseHelper_Users.UpdateCallback() {
             @Override
