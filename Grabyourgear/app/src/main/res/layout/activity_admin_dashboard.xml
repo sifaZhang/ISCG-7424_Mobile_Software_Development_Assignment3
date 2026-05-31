@@ -17,6 +17,111 @@
             layout="@layout/layout_common_header"
             android:id="@+id/header" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Actions"
+            style="@style/SectionTitle"
+            />
+
+        <GridLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:columnCount="2"
+            android:useDefaultMargins="true">
+
+            <!-- Gets a count of yet to be approved suppliers from database -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:elevation="4dp"
+                android:background="@drawable/rounded_bg"
+                android:gravity="top"
+                style="@style/CommonContainer">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pending Applications"
+                    android:layout_marginStart="10dp"
+                    style="@style/TextStyle1"
+                    />
+                <TextView
+                    android:id="@+id/tv_pending_applications"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="40dp"
+                    android:layout_marginStart="10dp"
+                    style="@style/TextStyle2"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_supplier_applications"
+                android:layout_width="0dp"
+                android:elevation="4dp"
+                android:background="@drawable/rounded_bg"
+                style="@style/CommonContainer"
+                android:layout_columnSpan="2">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_office"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View Supplier Applications"
+                    style="@style/TextStyle1"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ly_user_mgmt"
+                android:layout_width="0dp"
+                android:elevation="4dp"
+                android:background="@drawable/rounded_bg"
+                style="@style/CommonContainer">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_list"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Manage Users"
+                    style="@style/TextStyle1"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ly_supplier_mgmt"
+                android:layout_width="0dp"
+                android:elevation="4dp"
+                android:background="@drawable/rounded_bg"
+                style="@style/CommonContainer">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_storeprofile"
+                    app:tint="#4CAF50" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Manage Suppliers"
+                    style="@style/TextStyle1"
+                    />
+
+
+            </LinearLayout>
+
+        </GridLayout>
+
+
     </LinearLayout>
 
 </ScrollView>

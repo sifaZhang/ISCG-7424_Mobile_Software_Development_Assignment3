@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:elevation="4dp"
+    android:background="@drawable/rounded_bg"
+    android:padding="8dp"
+    android:layout_margin="6dp">
+
+    <ImageView
+        android:id="@+id/img_admin_user_avatar"
+        android:layout_width="100dp"
+        android:layout_height="90dp"
+        android:background="#DDDDDD"
+        android:scaleType="centerCrop"/>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingStart="10dp">
+
+
+        <LinearLayout
+            android:id="@+id/ly_admin_user_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_admin_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textStyle="bold"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_admin_user_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_admin_user_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_admin_user_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_admin_user_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@+id/ly_admin_user_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/btn_admin_user_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                style="@style/AppButtonPrimaryStyle"/>
+
+            <Button
+                android:id="@+id/btn_admin_user_ban"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ban"
+                android:backgroundTint="#CC0000"
+                android:layout_marginStart="8dp"
+                style="@style/AppButtonPrimaryStyle"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

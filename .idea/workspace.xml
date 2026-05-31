@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21d42a32-ab3b-45d7-a9e0-ee8c94862dc7" name="Changes" comment="task: Define Firebase database structure">
-      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Grabyourgear/app/src/main/java/com/group1/grabyourgear/admin/AdminEditUserActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Grabyourgear/app/src/main/res/layout/activity_admin_edit_user.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Grabyourgear/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Grabyourgear/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Grabyourgear/app/src/main/java/com/group1/grabyourgear/utils/Adapter_AdminUserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Grabyourgear/app/src/main/java/com/group1/grabyourgear/utils/Adapter_AdminUserView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,12 +27,12 @@
     &quot;assignee&quot;: &quot;sifaZhang&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/sifaZhang/ISCG-7424_Mobile_Software_Development_Assignment3.git",
-    "accountId": "4fa5b3b0-800b-4816-b08e-71e87e5e1f63"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/sifaZhang/ISCG-7424_Mobile_Software_Development_Assignment3.git&quot;,
+    &quot;accountId&quot;: &quot;4fa5b3b0-800b-4816-b08e-71e87e5e1f63&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -39,21 +41,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ameli/MobileApps/ISCG-7424_Mobile_Software_Development_Assignment3&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "admin-dash",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ameli/MobileApps/ISCG-7424_Mobile_Software_Development_Assignment3"
   }
-}</component>
+}]]></component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="21d42a32-ab3b-45d7-a9e0-ee8c94862dc7" name="Changes" comment="" />

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin.AdminEditUserActivity"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/layout_common_header"
+        android:id="@+id/header" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/img_admin_edit_avatar"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/placeholder_avatar"
+            android:scaleType="centerCrop"
+            android:background="@drawable/avatar_circle_bg"
+            android:padding="5dp"
+            android:clipToOutline="true"/>
+
+        <!-- Change Avatar Button -->
+        <TextView
+            android:id="@+id/tv_admin_edit_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change Avatar"
+            android:textColor="#2196F3"
+            android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+
+    <!-- Editable fields -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
+        >
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="Name:"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            />
+        <EditText
+            android:id="@+id/txt_admin_edit_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Display Name"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
+        >
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="Username:"
+            android:textStyle="bold"
+            android:textSize="16sp"
+        />
+        <EditText
+            android:id="@+id/txt_admin_edit_username"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
+        >
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="Phone:"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            />
+        <EditText
+            android:id="@+id/txt_admin_edit_phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
+        >
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="Address:"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            />
+        <EditText
+            android:id="@+id/txt_admin_edit_address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Address"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+    <!-- Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="8dp"
+        android:layout_gravity="center_vertical"
+        >
+
+        <Button
+            android:id="@+id/btn_admin_edit_save"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Save"
+            style="@style/AppButtonPrimaryStyle"
+            />
+        <Button
+            android:id="@+id/btn_admin_edit_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cancel"
+            style="@style/AppButtonPrimaryStyle"
+            />
+
+
+    </LinearLayout>
+
+</LinearLayout>
