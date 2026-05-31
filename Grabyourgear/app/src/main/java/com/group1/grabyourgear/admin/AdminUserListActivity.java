@@ -98,4 +98,11 @@ public class AdminUserListActivity extends BaseActivity {
             }
         });
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        refreshAdapter();
+    }
 }

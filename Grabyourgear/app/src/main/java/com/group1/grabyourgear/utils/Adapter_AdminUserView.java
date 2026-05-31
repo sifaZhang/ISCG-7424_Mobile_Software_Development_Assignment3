@@ -61,7 +61,6 @@ public class Adapter_AdminUserView extends RecyclerView.Adapter<Adapter_AdminUse
                 .placeholder(R.drawable.placeholder_avatar)
                 .into(holder.imgAvatar);
 
-        //TODO: Button handlers
         holder.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

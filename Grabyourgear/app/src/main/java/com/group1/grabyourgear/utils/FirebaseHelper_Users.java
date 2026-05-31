@@ -1,5 +1,7 @@
 package com.group1.grabyourgear.utils;
 
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -178,7 +180,6 @@ public class FirebaseHelper_Users {
 
     // Used for approving suppliers and banning/unbanning users
     public static void updateApprovalStatus(String uid, boolean newStatus, UpdateCallback callback) {
-        // TODO: Handle updating approval status. Just getting activity set up to start with
         DatabaseReference ref = FirebaseDatabase.getInstance()
                 .getReference(FirebaseNodes.USERS)
                 .child(uid)

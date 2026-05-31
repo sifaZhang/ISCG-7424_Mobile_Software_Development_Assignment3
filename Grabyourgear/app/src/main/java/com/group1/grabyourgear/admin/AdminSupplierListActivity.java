@@ -100,4 +100,10 @@ public class AdminSupplierListActivity extends BaseActivity {
             }
         });
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        refreshAdapter();
+    }
 }
