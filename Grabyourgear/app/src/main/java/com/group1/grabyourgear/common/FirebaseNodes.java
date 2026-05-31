@@ -74,8 +74,8 @@ public class FirebaseNodes {
     public static final String INQUIRIES = "inquiries";
 
     public static class InquiriesFields {
-        public static final String CONTACTEMAIL = "contactEmail";
-        public static final String CONTACTPHONE = "contactPhone";
+        public static final String ID = "id";
+        public static final String CONTACT = "contact";
         public static final String DETAILS = "details";
 
     }
@@ -83,6 +83,7 @@ public class FirebaseNodes {
     public static final String FEEDBACK = "feedback";
 
     public static class FeedbackFields {
+        public static final String ID = "id";
         public static final String NAME = "name";
         public static final String EMAIL = "email";
         public static final String PHONE = "phone";

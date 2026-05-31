@@ -24,6 +24,12 @@
             android:name=".admin.AdminReviewSuppliersActivity"
             android:exported="false" />
         <activity
+            android:name=".service.ServiceUserFeedbackList"
+            android:exported="false" />
+        <activity
+            android:name=".service.ServiceInquiryList"
+            android:exported="false" />
+        <activity
             android:name=".supplier.SupplierEquipmentDetailActivity"
             android:exported="false" />
         <activity
