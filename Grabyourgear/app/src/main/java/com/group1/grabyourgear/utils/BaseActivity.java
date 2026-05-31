@@ -26,6 +26,8 @@ import com.group1.grabyourgear.customer.CustomerDashboardActivity;
 import com.group1.grabyourgear.customer.CustomerMyBookingsActivity;
 import com.group1.grabyourgear.models.Users;
 import com.group1.grabyourgear.service.ServiceDashboardActivity;
+import com.group1.grabyourgear.service.ServiceFAQActivity;
+import com.group1.grabyourgear.service.ServiceInquiryActivity;
 import com.group1.grabyourgear.supplier.SupplierDashboardActivity;
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -155,7 +157,14 @@ public abstract class BaseActivity extends AppCompatActivity {
             } else if(id == R.id.menu_myBookings) {
                 startActivity(new Intent(this, CustomerMyBookingsActivity.class));
                 return true;
+            } else if(id == R.id.menu_faq) {
+                startActivity(new Intent(this, ServiceFAQActivity.class));
+                return true;
+            }else if(id == R.id.menu_inquiries) {
+                startActivity(new Intent(this, ServiceInquiryActivity.class));
+                return true;
             }
+
             return false;
         });
 
