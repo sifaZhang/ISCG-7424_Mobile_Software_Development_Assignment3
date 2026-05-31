@@ -178,6 +178,13 @@ public class FirebaseHelper_Users {
     // Used for approving suppliers and banning/unbanning users
     public static void updateApprovalStatus(String uid, boolean newStatus, UpdateCallback callback) {
         // TODO: Handle updating approval status. Just getting activity set up to start with
-        //USERS_REF.child(uid).
+        DatabaseReference ref = FirebaseDatabase.getInstance()
+                .getReference(FirebaseNodes.USERS)
+                .child(uid)
+                .child(FirebaseNodes.UserFields.IS_APPROVED);
+
+        ref.setValue(newStatus)
+                .addOnSuccessListener(aVoid -> callback.onSuccess())
+                .addOnFailureListener(e -> callback.onFailure(e));
     }
 }

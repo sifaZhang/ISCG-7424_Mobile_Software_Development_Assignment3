@@ -1,18 +1,21 @@
 package com.group1.grabyourgear.utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.group1.grabyourgear.R;
+import com.group1.grabyourgear.admin.AdminEditUserActivity;
 import com.group1.grabyourgear.models.Users;
 
 import java.util.List;
@@ -46,6 +49,10 @@ public class Adapter_AdminUserView extends RecyclerView.Adapter<Adapter_AdminUse
         holder.tvEmail.setText(user.getEmail());
         holder.tvPhone.setText(user.getPhone());
         holder.tvAddress.setText(user.getAddress());
+        // If the user is banned (set to not approved), set button to say unban instead
+        if(!user.isApproved()) {
+            holder.btnBan.setText("Unban");
+        }
 
         Glide.with(context)
                 .load(user.getAvatar())
@@ -53,6 +60,21 @@ public class Adapter_AdminUserView extends RecyclerView.Adapter<Adapter_AdminUse
                 .into(holder.imgAvatar);
 
         //TODO: Button handlers
+        holder.btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, AdminEditUserActivity.class);
+                intent.putExtra("ROLE", user.getRole());
+                context.startActivity(intent);
+            }
+        });
+
+        holder.btnBan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "User has been banned.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

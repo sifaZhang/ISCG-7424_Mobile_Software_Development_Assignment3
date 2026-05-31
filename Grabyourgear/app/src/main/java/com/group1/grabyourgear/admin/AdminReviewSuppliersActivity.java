@@ -87,11 +87,23 @@ public class AdminReviewSuppliersActivity extends BaseActivity {
                 .setTitle(dlgTitle)
                 .setMessage("Are you sure you want to " + buttonClicked + " this application?")
                 .setPositiveButton("Yes", (dialog, which) -> {
-                    Toast.makeText(AdminReviewSuppliersActivity.this,
-                            "Application " + adminChoice + ".", Toast.LENGTH_SHORT).show();
+                    FirebaseHelper_Users.updateApprovalStatus(application.getUid(), isApproved,
+                            new FirebaseHelper_Users.UpdateCallback() {
+                                @Override
+                                public void onSuccess() {
+                                    Toast.makeText(AdminReviewSuppliersActivity.this,
+                                            "Supplier application " + adminChoice + ".",
+                                            Toast.LENGTH_SHORT).show();
+                                }
 
-                    // TODO: If approved, update isApproved status of provided user/application with true
-                    // otherwise update it with no.
+                                @Override
+                                public void onFailure(Exception e) {
+                                    Toast.makeText(AdminReviewSuppliersActivity.this,
+                                            "Supplier application could not be " +
+                                            adminChoice + ".",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            });
                 })
                 .setNegativeButton("No", (dialog, which) -> {
                     dialog.dismiss();

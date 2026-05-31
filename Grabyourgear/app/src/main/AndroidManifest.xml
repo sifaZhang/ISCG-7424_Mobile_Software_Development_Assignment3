@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Grabyourgear" >
         <activity
+            android:name=".admin.AdminEditUserActivity"
+            android:exported="false" />
+        <activity
             android:name=".admin.AdminSupplierListActivity"
             android:exported="false" />
         <activity
