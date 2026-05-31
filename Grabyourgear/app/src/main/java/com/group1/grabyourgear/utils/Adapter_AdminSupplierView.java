@@ -1,6 +1,7 @@
 package com.group1.grabyourgear.utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.group1.grabyourgear.R;
+import com.group1.grabyourgear.admin.AdminEditUserActivity;
 import com.group1.grabyourgear.models.Users;
 
 import java.util.List;
@@ -53,6 +55,15 @@ public class Adapter_AdminSupplierView extends RecyclerView.Adapter<Adapter_Admi
                 .into(holder.imgAvatar);
 
         //TODO: Button handlers
+        holder.btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, AdminEditUserActivity.class);
+                intent.putExtra("ROLE", user.getRole());
+                intent.putExtra("UID", user.getUid());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

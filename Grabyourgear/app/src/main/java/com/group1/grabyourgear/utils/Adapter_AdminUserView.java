@@ -65,6 +65,7 @@ public class Adapter_AdminUserView extends RecyclerView.Adapter<Adapter_AdminUse
             public void onClick(View view) {
                 Intent intent = new Intent(context, AdminEditUserActivity.class);
                 intent.putExtra("ROLE", user.getRole());
+                intent.putExtra("UID", user.getUid());
                 context.startActivity(intent);
             }
         });
