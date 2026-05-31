@@ -16,11 +16,14 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.group1.grabyourgear.R;
+import com.group1.grabyourgear.common.AppConstants;
 import com.group1.grabyourgear.models.Users;
 import com.group1.grabyourgear.utils.BaseActivity;
 import com.group1.grabyourgear.utils.FirebaseHelper_Users;
 import com.group1.grabyourgear.utils.UserManager;
 import com.group1.grabyourgear.utils.UserPrefs;
+
+import java.util.Objects;
 
 public class LoginActivity extends BaseActivity {
 
@@ -88,9 +91,22 @@ public class LoginActivity extends BaseActivity {
                                         prefs.saveLogin(user.getUid());
                                         UserManager.getInstance().setUser(user);
 
-                                        Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
+                                        // Check if the user is approved, if not show an appropriate message
+                                        // based on the role of the user and do not go to the dashboard.
+                                        if(user.isApproved()) {
+                                            Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
 
-                                        goToDashboard(user.getRole());
+                                            goToDashboard(user.getRole());
+                                        } else {
+                                            // Make sure the user cannot get to the dashboard anyway by leaving the app and re-opening it
+                                            FirebaseAuth.getInstance().signOut();
+                                            UserManager.getInstance().clear();
+                                            if(Objects.equals(user.getRole(), AppConstants.Role.SUPPLIER)) {
+                                                Toast.makeText(LoginActivity.this, "Account not yet approved.", Toast.LENGTH_SHORT).show();
+                                            } else {
+                                                Toast.makeText(LoginActivity.this, "Account has been banned.", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
                                     }
 
                                     @Override
