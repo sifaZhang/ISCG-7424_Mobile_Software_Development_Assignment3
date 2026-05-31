@@ -70,4 +70,32 @@ public class AdminUserListActivity extends BaseActivity {
             }
         });
     }
+
+    public void refreshAdapter() {
+        FirebaseHelper_Users.loadAllUsers(new FirebaseHelper_Users.UserListCallback() {
+            @Override
+            public void onSuccess(List<Users> usersList) {
+                List<Users> uList = new ArrayList<>();
+
+                for (Users u : usersList) {
+                    if (!Objects.equals(u.getRole(), "supplier")) {
+                        uList.add(u);
+                    }
+                }
+
+                adapter = new Adapter_AdminUserView(
+                        AdminUserListActivity.this,
+                        uList);
+
+                rvUsers.setAdapter(adapter);
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                Toast.makeText(AdminUserListActivity.this,
+                        "User list retrieval failed",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }

@@ -72,7 +72,6 @@ public class Adapter_AdminSupplierApplicationView extends RecyclerView.Adapter<A
 
         // Approve button
         holder.btnApprove.setOnClickListener(view -> {
-            // Logic needs to be added, need to focus on just showing the list
             if (approveClickListener != null) {
                 approveClickListener.onApprove(application);
             }
@@ -92,7 +91,7 @@ public class Adapter_AdminSupplierApplicationView extends RecyclerView.Adapter<A
 
     public static class AdminApplicationViewHolder extends RecyclerView.ViewHolder {
         ImageView imgAvatar;
-        TextView tvStatus, tvName, tvUserName, tvEmail, tvPhone, tvAddress;
+        TextView tvName, tvUserName, tvEmail, tvPhone, tvAddress;
         Button btnApprove, btnDeny;
 
         public AdminApplicationViewHolder(@NonNull View itemView) {

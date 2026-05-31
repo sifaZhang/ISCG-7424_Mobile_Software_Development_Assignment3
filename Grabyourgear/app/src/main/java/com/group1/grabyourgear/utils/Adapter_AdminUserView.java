@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.group1.grabyourgear.R;
 import com.group1.grabyourgear.admin.AdminEditUserActivity;
+import com.group1.grabyourgear.admin.AdminSupplierListActivity;
+import com.group1.grabyourgear.admin.AdminUserListActivity;
 import com.group1.grabyourgear.models.Users;
 
 import java.util.List;
@@ -73,7 +75,28 @@ public class Adapter_AdminUserView extends RecyclerView.Adapter<Adapter_AdminUse
         holder.btnBan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "User has been banned.", Toast.LENGTH_SHORT).show();
+                Users user = usersList.get(holder.getBindingAdapterPosition());
+
+                // !user.isApproved() since this button flips the approval status from true to false
+                FirebaseHelper_Users.updateApprovalStatus(user.getUid(), !user.isApproved(),
+                        new FirebaseHelper_Users.UpdateCallback() {
+                            @Override
+                            public void onSuccess() {
+                                String msg = "User banned.";
+                                if (!user.isApproved()) msg = "User unbanned.";
+                                Toast.makeText(context, msg,
+                                        Toast.LENGTH_SHORT).show();
+                                notifyItemChanged(holder.getBindingAdapterPosition());
+                                AdminUserListActivity activity = (AdminUserListActivity) context;
+                                activity.refreshAdapter();
+                            }
+
+                            @Override
+                            public void onFailure(Exception e) {
+                                Toast.makeText(context, "User could not be banned",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        });
             }
         });
     }

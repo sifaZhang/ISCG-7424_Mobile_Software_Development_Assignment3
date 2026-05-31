@@ -1,5 +1,6 @@
 package com.group1.grabyourgear.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.group1.grabyourgear.R;
 import com.group1.grabyourgear.admin.AdminEditUserActivity;
+import com.group1.grabyourgear.admin.AdminSupplierListActivity;
 import com.group1.grabyourgear.models.Users;
 
 import java.util.List;
@@ -85,7 +87,11 @@ public class Adapter_AdminSupplierView extends RecyclerView.Adapter<Adapter_Admi
                                         Toast.LENGTH_SHORT).show();
                             }
                         });
-                notifyItemChanged(holder.getBindingAdapterPosition());
+                notifyItemRemoved(holder.getBindingAdapterPosition());
+                // This works for refreshing the adapter from an onClick in the viewholder.
+                // Do what u gotta do.
+                AdminSupplierListActivity activity = (AdminSupplierListActivity) context;
+                activity.refreshAdapter();
             }
         });
     }

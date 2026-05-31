@@ -71,4 +71,33 @@ public class AdminSupplierListActivity extends BaseActivity {
             }
         });
     }
+
+    public void refreshAdapter() {
+        FirebaseHelper_Users.loadAllUsers(new FirebaseHelper_Users.UserListCallback() {
+            @Override
+            public void onSuccess(List<Users> usersList) {
+                List<Users> supplierList = new ArrayList<>();
+
+                for (Users u : usersList) {
+                    // Only show approved suppliers in this list
+                    if (Objects.equals(u.getRole(), "supplier") && u.isApproved()) {
+                        supplierList.add(u);
+                    }
+                }
+
+                adapter = new Adapter_AdminSupplierView(
+                        AdminSupplierListActivity.this,
+                        supplierList);
+
+                rvSuppliers.setAdapter(adapter);
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                Toast.makeText(AdminSupplierListActivity.this,
+                        "Supplier list retrieval failed",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }
