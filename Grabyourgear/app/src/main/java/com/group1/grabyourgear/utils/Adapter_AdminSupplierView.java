@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -62,6 +63,29 @@ public class Adapter_AdminSupplierView extends RecyclerView.Adapter<Adapter_Admi
                 intent.putExtra("ROLE", user.getRole());
                 intent.putExtra("UID", user.getUid());
                 context.startActivity(intent);
+            }
+        });
+
+        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Users user = supplierList.get(holder.getBindingAdapterPosition());
+
+                FirebaseHelper_Users.updateApprovalStatus(user.getUid(), false,
+                        new FirebaseHelper_Users.UpdateCallback() {
+                            @Override
+                            public void onSuccess() {
+                                Toast.makeText(context, "Supplier banned",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onFailure(Exception e) {
+                                Toast.makeText(context, "Supplier could not be banned",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                notifyItemChanged(holder.getBindingAdapterPosition());
             }
         });
     }

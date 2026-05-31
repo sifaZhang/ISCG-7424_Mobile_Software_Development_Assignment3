@@ -22,7 +22,7 @@ import java.util.List;
 public class Adapter_AdminSupplierApplicationView extends RecyclerView.Adapter<Adapter_AdminSupplierApplicationView.AdminApplicationViewHolder> {
     private Context context;
 
-    private List<Users> applicationsList;
+    public List<Users> applicationsList;
 
     private OnApproveClickListener approveClickListener;
     private OnDenyClickListener denyClickListener;
@@ -92,7 +92,7 @@ public class Adapter_AdminSupplierApplicationView extends RecyclerView.Adapter<A
 
     public static class AdminApplicationViewHolder extends RecyclerView.ViewHolder {
         ImageView imgAvatar;
-        TextView tvName, tvUserName, tvEmail, tvPhone, tvAddress;
+        TextView tvStatus, tvName, tvUserName, tvEmail, tvPhone, tvAddress;
         Button btnApprove, btnDeny;
 
         public AdminApplicationViewHolder(@NonNull View itemView) {
@@ -109,5 +109,10 @@ public class Adapter_AdminSupplierApplicationView extends RecyclerView.Adapter<A
             btnDeny = itemView.findViewById(R.id.btn_appl_deny);
 
         }
+    }
+
+    public void delete(int position){
+        applicationsList.remove(position);
+        notifyItemRemoved(position);
     }
 }

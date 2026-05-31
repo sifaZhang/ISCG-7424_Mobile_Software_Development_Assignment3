@@ -18,6 +18,7 @@ import com.group1.grabyourgear.utils.Adapter_AdminSupplierApplicationView;
 import com.group1.grabyourgear.utils.BaseActivity;
 import com.group1.grabyourgear.utils.FirebaseHelper_Users;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -73,40 +74,45 @@ public class AdminReviewSuppliersActivity extends BaseActivity {
     }
 
     private void adminApproveOrDeny(Users application, boolean isApproved) {
-        // TODO: Handle what is done when an application is explicitly approved or denied
-        // through this screen. Would a denied application result in the account created being
-        // deleted? I just realized I haven't thought about that as much as I should have.
-        // For now, just set up the dialog box.
-
         // Setting up strings/substrings based on whether this is called from the approve or deny buttons.
         String dlgTitle = isApproved ? "Approve Application" : "Deny Application";
-        String buttonClicked = isApproved ? "approve" : "deny";
-        String adminChoice = isApproved ? "approved" : "denied";
+        String messageStr = "Are you sure you want to approve this application?";
+        String adminChoice;
+        if (!isApproved) {
+            adminChoice = "denied";
+            messageStr = "Are you sure you want to deny this application?";
+        } else {
+            // IDE complained if I didn't do this
+            adminChoice = "approved";
+        }
 
         new AlertDialog.Builder(AdminReviewSuppliersActivity.this)
                 .setTitle(dlgTitle)
-                .setMessage("Are you sure you want to " + buttonClicked + " this application?")
+                .setMessage(messageStr)
                 .setPositiveButton("Yes", (dialog, which) -> {
-                    FirebaseHelper_Users.updateApprovalStatus(application.getUid(), isApproved,
-                            new FirebaseHelper_Users.UpdateCallback() {
-                                @Override
-                                public void onSuccess() {
-                                    Toast.makeText(AdminReviewSuppliersActivity.this,
-                                            "Supplier application " + adminChoice + ".",
-                                            Toast.LENGTH_SHORT).show();
-                                }
+                        FirebaseHelper_Users.updateApprovalStatus(application.getUid(), isApproved,
+                                new FirebaseHelper_Users.UpdateCallback() {
+                                    @Override
+                                    public void onSuccess() {
+                                        Toast.makeText(AdminReviewSuppliersActivity.this,
+                                                "Supplier application " + adminChoice + ".",
+                                                Toast.LENGTH_SHORT).show();
+                                        // I'm almost certain that this, especially having the adapter list
+                                        // exposed is bad practice, but I'm doing it anyway.
+                                        adapter.delete(adapter.applicationsList.indexOf(application));
+                                    }
 
-                                @Override
-                                public void onFailure(Exception e) {
-                                    Toast.makeText(AdminReviewSuppliersActivity.this,
-                                            "Supplier application could not be " +
-                                            adminChoice + ".",
-                                            Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                                    @Override
+                                    public void onFailure(Exception e) {
+                                        Toast.makeText(AdminReviewSuppliersActivity.this,
+                                                "Supplier application could not be " + adminChoice + ".",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                });
                 })
                 .setNegativeButton("No", (dialog, which) -> {
                     dialog.dismiss();
+
                 })
                 .show();
     }
@@ -115,7 +121,6 @@ public class AdminReviewSuppliersActivity extends BaseActivity {
         adminApproveOrDeny(application, true);
     }
 
-    private void handleDenyClick(Users application) {
-        adminApproveOrDeny(application, false);
-    }
+    private void handleDenyClick(Users application) {adminApproveOrDeny(application, false); }
+
 }

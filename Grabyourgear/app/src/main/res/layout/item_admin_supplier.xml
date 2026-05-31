@@ -84,7 +84,7 @@
                 android:id="@+id/btn_admin_supp_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Delete"
+                android:text="Ban"
                 android:backgroundTint="#CC0000"
                 android:layout_marginStart="8dp"
                 style="@style/AppButtonPrimaryStyle"/>

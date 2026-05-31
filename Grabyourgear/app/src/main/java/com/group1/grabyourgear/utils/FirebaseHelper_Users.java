@@ -2,6 +2,8 @@ package com.group1.grabyourgear.utils;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,7 +39,6 @@ public class FirebaseHelper_Users {
             callback.onSuccess(user);
         }).addOnFailureListener(callback::onFailure);
     }
-
 
     // Load all users
     public interface UserListCallback {

@@ -103,4 +103,30 @@ public class AdminDashboardActivity extends BaseActivity {
 
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        FirebaseHelper_Users.loadAllUsers(new FirebaseHelper_Users.UserListCallback() {
+            @Override
+            public void onSuccess(List<Users> usersList) {
+                int userCount = 0;
+                for (Users u : usersList) {
+                    if (Objects.equals(u.getRole(), "supplier") && !u.isApproved()) {
+                        userCount++;
+                    }
+                }
+
+                tvPendingApplications.setText("" + userCount);
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                Toast.makeText(AdminDashboardActivity.this,
+                        "Supplier count retrieval failed",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 }

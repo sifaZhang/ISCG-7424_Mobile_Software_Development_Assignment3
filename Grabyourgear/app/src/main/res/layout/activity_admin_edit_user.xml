@@ -185,18 +185,8 @@
             android:text="Save"
             style="@style/AppButtonPrimaryStyle"
             />
-
         <Button
-            android:id="@+id/btn_admin_edit_delete"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Delete"
-            style="@style/AppButtonPrimaryStyle"
-            android:backgroundTint="#CC0000"
-            />
-
-        <Button
+            android:id="@+id/btn_admin_edit_cancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
