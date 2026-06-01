@@ -17,6 +17,49 @@
             layout="@layout/layout_common_header"
             android:id="@+id/header" />
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+            <!-- Category -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Actions"
+                style="@style/SectionTitle" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="1"
+                android:useDefaultMargins="true">
+
+                <LinearLayout
+                    android:id="@+id/lyViewInquiries"
+                    android:layout_width="0dp"
+                    android:elevation="4dp"
+                    android:background="@drawable/rounded_bg"
+                    style="@style/CommonContainer">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_list"
+                        app:tint="#3F51B5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View Inquiries"
+                        android:id="@+id/tvConstruction"
+                        style="@style/TextStyle1"
+                        android:layout_marginTop="6dp" />
+                </LinearLayout>
+            </GridLayout>
+        </LinearLayout>
+
     </LinearLayout>
 
 </ScrollView>

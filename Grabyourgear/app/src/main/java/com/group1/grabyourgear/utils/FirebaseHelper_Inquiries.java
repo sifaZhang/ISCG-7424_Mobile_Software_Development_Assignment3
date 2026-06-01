@@ -11,7 +11,7 @@ import java.util.List;
 
 public class FirebaseHelper_Inquiries {
     private static final DatabaseReference INQUIRY_REF =
-            FirebaseDatabase.getInstance().getReference(FirebaseNodes.BOOKINGS);
+            FirebaseDatabase.getInstance().getReference(FirebaseNodes.INQUIRIES);
 
     public interface InquiryListCallback {
         void onSuccess(List<Inquiry> inquiryList);
