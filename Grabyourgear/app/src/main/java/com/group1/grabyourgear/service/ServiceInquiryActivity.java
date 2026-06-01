@@ -21,11 +21,12 @@ import com.group1.grabyourgear.auth.ProfileActivity;
 import com.group1.grabyourgear.common.AppConstants;
 import com.group1.grabyourgear.common.FirebaseNodes;
 import com.group1.grabyourgear.models.Inquiry;
+import com.group1.grabyourgear.utils.BaseActivity;
 import com.group1.grabyourgear.utils.CloudinaryUploader;
 import com.group1.grabyourgear.utils.UploadCallback;
 import com.group1.grabyourgear.utils.UserManager;
 
-public class ServiceInquiryActivity extends AppCompatActivity {
+public class ServiceInquiryActivity extends BaseActivity {
 
     private EditText etContact, etDetails;
     private Button btnSendInquiry;
@@ -40,6 +41,8 @@ public class ServiceInquiryActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        setHeaderTitle("Send Inquiry");
 
         etContact = findViewById(R.id.etContact);
         etDetails = findViewById(R.id.etDetails);

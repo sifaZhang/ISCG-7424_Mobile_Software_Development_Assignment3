@@ -16,11 +16,12 @@ import com.group1.grabyourgear.customer.CustomerMyBookingsActivity;
 import com.group1.grabyourgear.utils.Adapter_InquiryView;
 import com.group1.grabyourgear.models.Inquiry;
 import com.group1.grabyourgear.utils.Adapter_MyBookingView;
+import com.group1.grabyourgear.utils.BaseActivity;
 import com.group1.grabyourgear.utils.FirebaseHelper_Inquiries;
 
 import java.util.List;
 
-public class ServiceInquiryList extends AppCompatActivity {
+public class ServiceInquiryList extends BaseActivity {
 
     RecyclerView recyclerView;
     Adapter_InquiryView adapter;
@@ -35,6 +36,8 @@ public class ServiceInquiryList extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        setHeaderTitle("Inquiry List");
 
         recyclerView = findViewById(R.id.rvInquiryList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

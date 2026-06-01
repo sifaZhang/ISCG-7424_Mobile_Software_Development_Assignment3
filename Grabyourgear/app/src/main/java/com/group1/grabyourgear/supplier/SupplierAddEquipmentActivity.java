@@ -29,6 +29,7 @@ import com.group1.grabyourgear.auth.ProfileActivity;
 import com.group1.grabyourgear.common.AppConstants;
 import com.group1.grabyourgear.common.FirebaseNodes;
 import com.group1.grabyourgear.models.Equipment;
+import com.group1.grabyourgear.utils.BaseActivity;
 import com.group1.grabyourgear.utils.CloudinaryUploader;
 import com.group1.grabyourgear.utils.UploadCallback;
 import com.group1.grabyourgear.utils.UserManager;
@@ -36,7 +37,7 @@ import com.group1.grabyourgear.utils.UserManager;
 import java.util.Arrays;
 import java.util.List;
 
-public class SupplierAddEquipmentActivity extends AppCompatActivity {
+public class SupplierAddEquipmentActivity extends BaseActivity {
 
     private EditText etName, etDescription, etPrice, etDiscount, etLocation;
     private Spinner spinnerCategory;
@@ -67,6 +68,8 @@ public class SupplierAddEquipmentActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        setHeaderTitle("Add Equipment");
 
         etName = findViewById(R.id.etEquipName);
         etDescription = findViewById(R.id.etEquipDescription);
