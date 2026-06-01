@@ -24,6 +24,6 @@ public class ServiceFAQActivity extends BaseActivity {
             return insets;
         });
 
-        setHeaderTitle("FQA");
+        setHeaderTitle("FAQ");
     }
 }
