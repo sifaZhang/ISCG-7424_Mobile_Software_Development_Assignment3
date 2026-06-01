@@ -110,13 +110,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Can I extend my rental period?"
+                android:text="Who can operate the hired machinery?"
                 android:textStyle="bold"
                 android:textSize="16sp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Yes, you can reach out to our team if you need to extend your rental period."
+                android:text="All machinery must be operated by someone over 18 years of age and properly licenced or qualified for safe usage."
                 android:textSize="16sp" />
         </LinearLayout>
 
