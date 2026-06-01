@@ -139,6 +139,15 @@
                     android:text="Delete" />
 
                 <Button
+                    android:id="@+id/btnComplete"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    style="@style/AppButtonPrimaryStyle"
+                    android:text="Complete" />
+
+                <Button
                     android:id="@+id/btnBackDetail"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

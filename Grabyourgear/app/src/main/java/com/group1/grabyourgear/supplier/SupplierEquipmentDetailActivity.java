@@ -36,7 +36,7 @@ public class SupplierEquipmentDetailActivity extends BaseActivity {
 
     private ImageView imgProduct;
     private TextView tvTitle, tvRating, tvLocation, tvCategory, tvPrice, tvDiscount, tvStatus, tvDescription;
-    private Button btnPrimary, btnSecondary, btnBack;
+    private Button btnPrimary, btnSecondary, btnBack, btnComplete;
 
     private String equipmentId, mode, bookingId, bookingStatus;
 
@@ -66,6 +66,8 @@ public class SupplierEquipmentDetailActivity extends BaseActivity {
         btnPrimary = findViewById(R.id.btnPrimaryDetail);
         btnSecondary = findViewById(R.id.btnSecondaryDetail);
         btnBack = findViewById(R.id.btnBackDetail);
+        btnComplete = findViewById(R.id.btnComplete);
+        btnComplete.setVisibility(View.GONE);
 
         equipmentId = getIntent().getStringExtra(AppConstants.IntenParamer.EQUIPMENT_ID);
         mode = getIntent().getStringExtra("mode");
@@ -82,6 +84,13 @@ public class SupplierEquipmentDetailActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        btnComplete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateBookingStatus(FirebaseNodes.BookingStatus.COMPLETED);
             }
         });
 
@@ -225,6 +234,12 @@ public class SupplierEquipmentDetailActivity extends BaseActivity {
 
     private void setupBookingButtons() {
         boolean isPending = FirebaseNodes.BookingStatus.PENDING.equalsIgnoreCase(bookingStatus);
+        boolean isConfirmed = FirebaseNodes.BookingStatus.CONFIRMED.equalsIgnoreCase(bookingStatus);
+
+        if (isConfirmed){
+            //confirmed
+            btnComplete.setVisibility(View.VISIBLE);
+        }
 
         if(!isPending) {
             btnPrimary.setVisibility(View.GONE);
@@ -232,6 +247,7 @@ public class SupplierEquipmentDetailActivity extends BaseActivity {
             return;
         }
 
+        //pending
         btnPrimary.setVisibility(View.VISIBLE);
         btnSecondary.setVisibility(View.VISIBLE);
 
@@ -251,7 +267,6 @@ public class SupplierEquipmentDetailActivity extends BaseActivity {
                 updateBookingStatus(FirebaseNodes.BookingStatus.REJECTED);
             }
         });
-
     }
 
     private void updateBookingStatus(String newStatus) {
